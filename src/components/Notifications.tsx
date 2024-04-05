@@ -1,11 +1,9 @@
 import NotificationItem from "./NotificationItem";
+import useNotifications from "../hooks/useNotifications";
 
-const SAMPLE_NOTIFICATIONS = [
-  { title: "New user!", info: "A new user registered" },
-  { title: "Invite received", info: "Received invite from Jane" },
-  { title: "Email sent", info: "Doc access email sent to Joe" },
-];
 const Notifications = () => {
+  const notifications = useNotifications();
+
   return (
     <div className="rounded-xl border bg-card text-card-foreground shadow">
       <div className="flex flex-col space-y-1.5 p-6 pb-3 / border-0 border-b border-solid">
@@ -36,8 +34,9 @@ const Notifications = () => {
           </div>
         </div>
       </div>
-      <div className="p-6 pt-0 grid gap-1">
-        {SAMPLE_NOTIFICATIONS.map(({ title, info }, index) => (
+
+      <div className="p-6 pt-0 grid gap-1 / max-h-[300px] overflow-y-auto">
+        {notifications.map(({ title, info }, index) => (
           <NotificationItem title={title} info={info} key={index} />
         ))}
       </div>
