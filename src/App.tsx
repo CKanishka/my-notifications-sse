@@ -1,10 +1,11 @@
 import "./App.css";
+import Notifications from "./components/Notifications";
 
 function App() {
   return (
-    <>
-      <h1>Hello</h1>
-    </>
+    <div className="flex items-center justify-center / w-full h-full">
+      <Notifications />
+    </div>
   );
 }
 
