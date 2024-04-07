@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 
 const EVENT_SOURCE_URL = "http://localhost:3000/events";
@@ -12,15 +12,10 @@ const SAMPLE_NOTIFICATIONS = [
 const useNotifications = () => {
   const [notifications, setNotifications] = useState(SAMPLE_NOTIFICATIONS);
 
-  const isConnectionOpen = useRef(false);
-
   useEffect(() => {
-    if (isConnectionOpen.current) return;
-
     const eventSource = new EventSource(EVENT_SOURCE_URL);
 
     eventSource.onopen = () => {
-      isConnectionOpen.current = true;
       console.log("Connection to server opened.");
     };
 
@@ -40,7 +35,6 @@ const useNotifications = () => {
     };
 
     return () => {
-      isConnectionOpen.current = false;
       eventSource.close();
     };
   }, []);
