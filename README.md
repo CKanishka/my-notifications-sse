@@ -1,30 +1,37 @@
-# React + TypeScript + Vite
+# React Notifications App using SSE
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Introduction
 
-Currently, two official plugins are available:
+This React application demonstrates the power of Server-Sent Events (SSE) by providing real-time notifications to users. SSE is a standard enabling web servers to push updates to web browsers over HTTP connections, eliminating the need for polling.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Installation
 
-## Expanding the ESLint configuration
+To run this project locally, follow these steps:
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+1. Clone the repository to your local machine:
 
-- Configure the top-level `parserOptions` property like this:
+`git clone https://github.com/CKanishka/my-notifications-sse.git`
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+2. Navigate to the project directory:
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+`cd my-notifications-sse`
+
+3. Install dependencies using npm or yarn:
+
+`npm install` or
+`yarn install`
+
+4. Once the dependencies are installed the React app's development server can be started by:
+
+`npm run dev` or
+`yarn dev`
+
+5. Start the Node.js server by:
+
+`node server.js`
+
+## Technologies Used
+
+- React
+- Node JS
+- Server-Sent Events (SSE)
