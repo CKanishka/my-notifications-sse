@@ -9,13 +9,22 @@ const server = http.createServer((req, res) => {
       Connection: "keep-alive",
     });
 
-    setInterval(() => {
-      const eventData = JSON.stringify({
+    const sendEvent = (data) => {
+      res.write(`data: ${JSON.stringify(data)}\n\n`);
+    };
+
+    const intervalId = setInterval(() => {
+      sendEvent({
+        id: Date.now(),
         title: `New email from User-${Math.floor(Math.random() * 100)}`,
         info: `Received on ${new Date().toLocaleTimeString()}`,
       });
-      res.write(`data: ${eventData}\n\n`);
     }, 60000);
+
+    // When the client closes the connection, stop sending events
+    req.on("close", () => {
+      clearInterval(intervalId);
+    });
   }
 });
 
