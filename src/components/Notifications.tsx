@@ -36,8 +36,8 @@ const Notifications = () => {
       </div>
 
       <div className="p-6 pt-0 grid gap-1 / max-h-[300px] overflow-y-auto">
-        {notifications.map(({ title, info }, index) => (
-          <NotificationItem title={title} info={info} key={index} />
+        {notifications.map(({ title, info, id }) => (
+          <NotificationItem title={title} info={info} key={id} />
         ))}
       </div>
     </div>
